@@ -12,12 +12,35 @@ public class TrainApplication {
         System.out.println("======================================");
 
         // Initialize an empty train consist
-        List<String> trainConsist = new ArrayList<>();
+        List<String> passengerBogies = new ArrayList<>();
 
         // Display the initial state
         System.out.println("Train consist initialized successfully.");
         
-        System.out.println("Initial Bogie Count : " + trainConsist.size());
+        System.out.println("Initial Bogie Count : " + passengerBogies.size());
+
+        // Add passenger bogies
+        passengerBogies.add("Sleeper");
+        passengerBogies.add("AC Chair");
+        passengerBogies.add("First Class");
+
+        System.out.println("\nPassenger Bogies After Adding:");
+        System.out.println(passengerBogies);
+
+        // Remove one bogie
+        passengerBogies.remove("AC Chair");
+
+        System.out.println("\nPassenger Bogies After Removing AC Chair:");
+        System.out.println(passengerBogies);
+
+        // Check existence
+        boolean isPresent = passengerBogies.contains("Sleeper");
+
+        System.out.println("\nIs Sleeper Present?");
+        System.out.println(isPresent);
+
+        System.out.println("\nFinal Passenger Train Consist:");
+        System.out.println(passengerBogies);
 
     }
 

@@ -8,11 +8,11 @@ The application is developed incrementally through multiple use cases, where eac
 
 ---
 
-# 📌 UC1: Initialize Train and Display Consist Summary
+# UC2: Add Passenger Bogies to Train (ArrayList Operations)
 
 ## 🎯 Goal
 
-Initialize the Train Consist Management App and display the initial state of the train consist.
+Allow dynamic insertion and removal of passenger bogies using **ArrayList**.
 
 ---
 
@@ -25,32 +25,37 @@ Initialize the Train Consist Management App and display the initial state of the
 ## 🔄 Flow
 
 1. User runs the application.
-2. Application displays a welcome message.
-3. An empty train consist is initialized.
-4. The initial bogie count is displayed.
-5. Program continues execution.
+2. Passenger bogies are added to the train.
+3. The list of passenger bogies is displayed.
+4. One bogie is removed from the train.
+5. The application checks whether a specific bogie exists.
+6. The final state of the passenger bogie list is displayed.
+7. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Class
-- Main Method
-- Static Keyword
-- List Interface
 - ArrayList
-- Dynamic Collection Initialization
-- Console Output using `System.out.println()`
+- add() Method
+- remove() Method
+- contains() Method
+- Insertion Order Preservation
+- CRUD Operations (Create, Read, Update, Delete)
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a Java class for the Train Consist Management application.
-- Implement the `main()` method as the application's entry point.
-- Display a welcome message.
-- Create an empty `ArrayList` to represent the train consist.
-- Display the initial number of bogies using the `size()` method.
+- Create an `ArrayList<String>` to store passenger bogies.
+- Add the following passenger bogies:
+    - Sleeper
+    - AC Chair
+    - First Class
+- Display all passenger bogies after insertion.
+- Remove the **AC Chair** bogie.
+- Check whether the **Sleeper** bogie exists using `contains()`.
+- Display the final state of the passenger bogie list.
 
 ---
 
@@ -97,30 +102,37 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Train consist initialized successfully.
+Passenger Bogies After Adding:
+[Sleeper, AC Chair, First Class]
 
-Initial Bogie Count : 0
+Passenger Bogies After Removing AC Chair:
+[Sleeper, First Class]
+
+Contains Sleeper? true
+
+Final Passenger Bogies:
+[Sleeper, First Class]
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC1, the following Java concepts are understood:
+After completing UC2, the following Java concepts are understood:
 
-- Java program execution flow
-- Entry point using the `main()` method
-- Creating dynamic collections using `ArrayList`
-- Working with the `List` interface
-- Displaying output using the console
-- Using the `size()` method to determine collection size
+- Creating and managing dynamic collections using `ArrayList`
+- Adding elements using the `add()` method
+- Removing elements using the `remove()` method
+- Searching elements using the `contains()` method
+- Understanding CRUD operations on collections
+- Preserving insertion order in an `ArrayList`
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc1-initialize-train
+feature/uc2-add-passenger-bogies
 ```
 
 ---
@@ -128,7 +140,7 @@ feature/uc1-initialize-train
 ## 💬 Commit Message
 
 ```text
-feat(UC1): initialize Train Consist Management application
+feat(UC2): implement passenger bogie management using ArrayList
 ```
 
 ---
@@ -136,3 +148,4 @@ feat(UC1): initialize Train Consist Management application
 ## 🚀 Project Status
 
 - ✅ UC1 Completed
+- ✅ UC2 Completed
