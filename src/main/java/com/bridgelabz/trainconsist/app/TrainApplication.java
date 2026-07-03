@@ -16,6 +16,7 @@ public class TrainApplication {
 
         // Display the initial state
         System.out.println("Train consist initialized successfully.");
+        
         System.out.println("Initial Bogie Count : " + trainConsist.size());
 
     }
