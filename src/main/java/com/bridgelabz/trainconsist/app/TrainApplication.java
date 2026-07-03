@@ -1,7 +1,7 @@
 package com.bridgelabz.trainconsist.app;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainApplication {
 
@@ -11,36 +11,22 @@ public class TrainApplication {
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
-        // Initialize an empty train consist
-        List<String> passengerBogies = new ArrayList<>();
+        // Create a HashSet to store unique bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // Display the initial state
-        System.out.println("Train consist initialized successfully.");
-        
-        System.out.println("Initial Bogie Count : " + passengerBogies.size());
+        // Add bogie IDs
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
 
-        // Add passenger bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Add duplicate bogie IDs intentionally
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
 
-        System.out.println("\nPassenger Bogies After Adding:");
-        System.out.println(passengerBogies);
+        // Display unique bogie IDs
+        System.out.println("\nUnique Bogie IDs:");
+        System.out.println(bogieIds);
 
-        // Remove one bogie
-        passengerBogies.remove("AC Chair");
-
-        System.out.println("\nPassenger Bogies After Removing AC Chair:");
-        System.out.println(passengerBogies);
-
-        // Check existence
-        boolean isPresent = passengerBogies.contains("Sleeper");
-
-        System.out.println("\nIs Sleeper Present?");
-        System.out.println(isPresent);
-
-        System.out.println("\nFinal Passenger Train Consist:");
-        System.out.println(passengerBogies);
 
     }
 

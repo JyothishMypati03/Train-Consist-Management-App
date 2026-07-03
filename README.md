@@ -1,18 +1,8 @@
-# 🚆 Train Consist Management App
-
-## 📖 Project Overview
-
-The **Train Consist Management App** is a console-based Java application that simulates how a railway system manages a train consist, which is a collection of bogies attached to a locomotive (engine).
-
-The application is developed incrementally through multiple use cases, where each use case introduces one or more Core Java concepts using a realistic railway management scenario.
-
----
-
-# UC2: Add Passenger Bogies to Train (ArrayList Operations)
+#  UC3: Track Unique Bogie IDs (Set – HashSet)
 
 ## 🎯 Goal
 
-Allow dynamic insertion and removal of passenger bogies using **ArrayList**.
+Ensure that no duplicate bogie IDs are added to the train by using the `HashSet` collection.
 
 ---
 
@@ -24,38 +14,32 @@ Allow dynamic insertion and removal of passenger bogies using **ArrayList**.
 
 ## 🔄 Flow
 
-1. User runs the application.
-2. Passenger bogies are added to the train.
-3. The list of passenger bogies is displayed.
-4. One bogie is removed from the train.
-5. The application checks whether a specific bogie exists.
-6. The final state of the passenger bogie list is displayed.
-7. Program continues execution.
+1. User adds bogie IDs.
+2. System stores bogie IDs in a `HashSet`.
+3. Duplicate bogie IDs are ignored automatically.
+4. Unique bogie IDs are displayed.
+5. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- ArrayList
+- Set Interface
+- HashSet
 - add() Method
-- remove() Method
-- contains() Method
-- Insertion Order Preservation
-- CRUD Operations (Create, Read, Update, Delete)
+- Automatic Deduplication
+- Uniqueness of Elements
+- Hash-Based Storage
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create an `ArrayList<String>` to store passenger bogies.
-- Add the following passenger bogies:
-    - Sleeper
-    - AC Chair
-    - First Class
-- Display all passenger bogies after insertion.
-- Remove the **AC Chair** bogie.
-- Check whether the **Sleeper** bogie exists using `contains()`.
-- Display the final state of the passenger bogie list.
+- Create a `HashSet<String>` for bogie IDs.
+- Add multiple bogie IDs.
+- Intentionally add duplicate IDs.
+- Display the final set.
+- Verify that duplicate IDs are removed automatically.
 
 ---
 
@@ -102,37 +86,31 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Passenger Bogies After Adding:
-[Sleeper, AC Chair, First Class]
-
-Passenger Bogies After Removing AC Chair:
-[Sleeper, First Class]
-
-Contains Sleeper? true
-
-Final Passenger Bogies:
-[Sleeper, First Class]
+Bogie IDs:
+[BG101, BG102, BG103]
 ```
+
+> Duplicate entries are automatically ignored by `HashSet`.
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC2, the following Java concepts are understood:
+After completing UC3, the following Java concepts are understood:
 
-- Creating and managing dynamic collections using `ArrayList`
-- Adding elements using the `add()` method
-- Removing elements using the `remove()` method
-- Searching elements using the `contains()` method
-- Understanding CRUD operations on collections
-- Preserving insertion order in an `ArrayList`
+- Using the `Set` interface
+- Working with `HashSet`
+- Storing only unique elements
+- Preventing duplicate data automatically
+- Understanding unordered collections
+- Applying uniqueness constraints in real-world applications
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc2-add-passenger-bogies
+feature/uc3-unique-bogie-ids
 ```
 
 ---
@@ -140,7 +118,7 @@ feature/uc2-add-passenger-bogies
 ## 💬 Commit Message
 
 ```text
-feat(UC2): implement passenger bogie management using ArrayList
+feat(UC3): implement unique bogie ID management using HashSet
 ```
 
 ---
@@ -149,3 +127,4 @@ feat(UC2): implement passenger bogie management using ArrayList
 
 - ✅ UC1 Completed
 - ✅ UC2 Completed
+- ✅ UC3 Completed
