@@ -23,18 +23,20 @@ public class TrainApplication {
         passengerBogies.add(new Bogie("AC Chair", 48));
         passengerBogies.add(new Bogie("First Class", 24));
 
-        System.out.println("\nBefore Sorting:");
+        System.out.println("\nAll Passenger Bogies:");
 
         for (Bogie bogie : passengerBogies) {
             System.out.println(bogie);
         }
 
-        // Sort by capacity
-        passengerBogies.sort(Comparator.comparingInt(Bogie::getCapacity));
+        // Filter bogies with capacity greater than 60
+        List<Bogie> filteredBogies = passengerBogies.stream()
+                .filter(b -> b.getCapacity() > 60)
+                .toList();
 
-        System.out.println("\nAfter Sorting by Capacity:");
+        System.out.println("\nPassenger Bogies with Capacity > 60:");
 
-        for (Bogie bogie : passengerBogies) {
+        for (Bogie bogie : filteredBogies) {
             System.out.println(bogie);
         }
 
