@@ -1,8 +1,8 @@
-# 📌 UC5: Preserve Insertion Order of Bogies (LinkedHashSet)
+# 📌 UC6: Map Bogie to Capacity (HashMap)
 
 ## 🎯 Goal
 
-Maintain the insertion order of train bogies while enforcing uniqueness by using a `LinkedHashSet`.
+Associate each bogie with its seating or load capacity by using a `HashMap`, enabling efficient storage and retrieval of bogie capacity information.
 
 ---
 
@@ -14,37 +14,37 @@ Maintain the insertion order of train bogies while enforcing uniqueness by using
 
 ## 🔄 Flow
 
-1. User creates the train formation.
-2. Bogies are attached to the train.
-3. A duplicate bogie is intentionally added.
-4. `LinkedHashSet` ignores the duplicate automatically.
-5. The train formation is displayed in the original insertion order.
-6. Program continues execution.
+1. User creates a bogie-capacity mapping.
+2. Bogie names are stored as keys.
+3. Capacity values are stored as values.
+4. Entries are inserted into a `HashMap`.
+5. The system iterates through the map using `entrySet()`.
+6. Each bogie along with its corresponding capacity is displayed.
+7. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Set Interface
-- LinkedHashSet
-- add() Method
-- Automatic Deduplication
-- Insertion Order Preservation
-- Ordered Iteration
+- Map Interface
+- HashMap
+- put() Method
+- Key–Value Pair Mapping
+- entrySet() Iteration
+- Fast Lookup Using Keys
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a `LinkedHashSet<String>` to represent the train formation.
-- Add the following bogies:
-    - Engine
-    - Sleeper
-    - Cargo
-    - Guard
-- Attempt to add a duplicate bogie (`Sleeper`).
-- Display the final train formation.
-- Ensure duplicate bogies do not appear in the output while preserving insertion order.
+- Create a `HashMap<String, Integer>` to store bogie-capacity information.
+- Add the following bogie-capacity mappings:
+    - Sleeper → 72
+    - AC Chair → 48
+    - First Class → 24
+- Use the `put()` method to insert each mapping.
+- Iterate through the map using `entrySet()`.
+- Display each bogie along with its seating capacity.
 
 ---
 
@@ -91,30 +91,34 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Train Formation:
-[Engine, Sleeper, Cargo, Guard]
+Bogie Capacity Details:
+
+Sleeper -> 72
+AC Chair -> 48
+First Class -> 24
 ```
 
-> **Note:** The duplicate `Sleeper` bogie is ignored automatically, and the insertion order is preserved.
+> **Note:** `HashMap` stores data as **key–value pairs**. The iteration order is **not guaranteed**, so the output order may vary.
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC5, the following Java concepts are understood:
+After completing UC6, the following Java concepts are understood:
 
-- Using the `LinkedHashSet` collection
-- Maintaining insertion order while preventing duplicate elements
-- Understanding the difference between `HashSet` and `LinkedHashSet`
-- Iterating over elements in insertion order
-- Applying uniqueness and ordering together in real-world applications
+- Using the `HashMap` collection
+- Associating keys with values using key–value pairs
+- Storing bogie capacities efficiently
+- Iterating through a map using `entrySet()`
+- Performing fast lookups using keys
+- Understanding when to use a `Map` instead of a `List` or `Set`
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc5-preserve-insertion-order
+feature/uc6-map-bogie-capacity
 ```
 
 ---
@@ -122,7 +126,7 @@ feature/uc5-preserve-insertion-order
 ## 💬 Commit Message
 
 ```text
-feat(UC5): preserve insertion order using LinkedHashSet
+feat(UC6): map bogies to seating capacity using HashMap
 ```
 
 ---
@@ -134,3 +138,4 @@ feat(UC5): preserve insertion order using LinkedHashSet
 - ✅ UC3 Completed
 - ✅ UC4 Completed
 - ✅ UC5 Completed
+- ✅ UC6 Completed

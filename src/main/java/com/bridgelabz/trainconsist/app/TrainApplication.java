@@ -1,7 +1,8 @@
 package com.bridgelabz.trainconsist.app;
 
 
-import java.util.LinkedHashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrainApplication {
 
@@ -11,21 +12,23 @@ public class TrainApplication {
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
-        // Create a LinkedHashSet to store train formation
-        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
+        // Create a HashMap to store bogie-capacity mapping
+        HashMap<String, Integer> bogieCapacity = new HashMap<>();
 
-        // Attach bogies
-        trainFormation.add("Engine");
-        trainFormation.add("Sleeper");
-        trainFormation.add("Cargo");
-        trainFormation.add("Guard");
+        // Add bogie capacities
+        bogieCapacity.put("Sleeper", 72);
+        bogieCapacity.put("AC Chair", 48);
+        bogieCapacity.put("First Class", 24);
 
-        // Attempt to add a duplicate bogie
-        trainFormation.add("Sleeper");
+        System.out.println("\nBogie Capacity Details:");
 
-        // Display final train formation
-        System.out.println("\nTrain Formation:");
-        System.out.println(trainFormation);
+        // Iterate using entrySet()
+        for (Map.Entry<String, Integer> entry : bogieCapacity.entrySet()) {
+
+            System.out.println("Bogie : " + entry.getKey());
+            System.out.println("Capacity : " + entry.getValue());
+            System.out.println();
+        }
 
 
     }
