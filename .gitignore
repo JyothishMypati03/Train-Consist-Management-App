@@ -1,0 +1,64 @@
+# ==========================
+# Maven
+# ==========================
+target/
+
+# Maven Wrapper JAR (Keep it)
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==========================
+# IntelliJ IDEA
+# ==========================
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ==========================
+# Eclipse
+# ==========================
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
+
+# ==========================
+# NetBeans
+# ==========================
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Logs
+# ==========================
+*.log
+
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.swp
+*.swo
+
+# ==========================
+# Java
+# ==========================
+*.class
