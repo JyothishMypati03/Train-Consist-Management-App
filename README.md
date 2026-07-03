@@ -1,8 +1,8 @@
-# 📌 UC4: Maintain Ordered Train Consist (LinkedList)
+# 📌 UC5: Preserve Insertion Order of Bogies (LinkedHashSet)
 
 ## 🎯 Goal
 
-Maintain the physical order of train bogies by using a `LinkedList`, allowing efficient insertion and removal of bogies from the beginning, middle, and end of the train consist.
+Maintain the insertion order of train bogies while enforcing uniqueness by using a `LinkedHashSet`.
 
 ---
 
@@ -14,42 +14,37 @@ Maintain the physical order of train bogies by using a `LinkedList`, allowing ef
 
 ## 🔄 Flow
 
-1. User creates the train consist.
-2. Bogies are added to the train.
-3. A Pantry Car is inserted at a specific position.
-4. The first and last bogies are removed.
-5. The final ordered train consist is displayed.
+1. User creates the train formation.
+2. Bogies are attached to the train.
+3. A duplicate bogie is intentionally added.
+4. `LinkedHashSet` ignores the duplicate automatically.
+5. The train formation is displayed in the original insertion order.
 6. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- List Interface
-- LinkedList
-- Node-Based Data Structure
-- addFirst() Method
-- addLast() Method
-- add(index, element) Method
-- removeFirst() Method
-- removeLast() Method
-- Order Preservation
+- Set Interface
+- LinkedHashSet
+- add() Method
+- Automatic Deduplication
+- Insertion Order Preservation
+- Ordered Iteration
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a `LinkedList<String>` to represent the train consist.
+- Create a `LinkedHashSet<String>` to represent the train formation.
 - Add the following bogies:
     - Engine
     - Sleeper
-    - AC
     - Cargo
     - Guard
-- Insert **Pantry Car** at position **2**.
-- Remove the first bogie.
-- Remove the last bogie.
-- Display the final ordered train consist.
+- Attempt to add a duplicate bogie (`Sleeper`).
+- Display the final train formation.
+- Ensure duplicate bogies do not appear in the output while preserving insertion order.
 
 ---
 
@@ -96,35 +91,30 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Initial Train Consist:
-[Engine, Sleeper, AC, Cargo, Guard]
-
-After Inserting Pantry Car:
-[Engine, Sleeper, Pantry Car, AC, Cargo, Guard]
-
-Final Train Consist:
-[Sleeper, Pantry Car, AC, Cargo]
+Train Formation:
+[Engine, Sleeper, Cargo, Guard]
 ```
+
+> **Note:** The duplicate `Sleeper` bogie is ignored automatically, and the insertion order is preserved.
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC4, the following Java concepts are understood:
+After completing UC5, the following Java concepts are understood:
 
-- Using the `LinkedList` collection
-- Maintaining the physical order of train bogies
-- Inserting elements at the beginning, middle, and end
-- Removing elements efficiently from both ends
-- Understanding node-based data structures
-- Learning when `LinkedList` is preferred over `ArrayList`
+- Using the `LinkedHashSet` collection
+- Maintaining insertion order while preventing duplicate elements
+- Understanding the difference between `HashSet` and `LinkedHashSet`
+- Iterating over elements in insertion order
+- Applying uniqueness and ordering together in real-world applications
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc4-ordered-bogie-ids
+feature/uc5-preserve-insertion-order
 ```
 
 ---
@@ -132,7 +122,7 @@ feature/uc4-ordered-bogie-ids
 ## 💬 Commit Message
 
 ```text
-feat(UC4): implement ordered train consist using LinkedList
+feat(UC5): preserve insertion order using LinkedHashSet
 ```
 
 ---
@@ -143,3 +133,4 @@ feat(UC4): implement ordered train consist using LinkedList
 - ✅ UC2 Completed
 - ✅ UC3 Completed
 - ✅ UC4 Completed
+- ✅ UC5 Completed

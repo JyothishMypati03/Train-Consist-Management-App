@@ -1,6 +1,7 @@
 package com.bridgelabz.trainconsist.app;
 
-import java.util.LinkedList;
+
+import java.util.LinkedHashSet;
 
 public class TrainApplication {
 
@@ -10,30 +11,21 @@ public class TrainApplication {
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
-        LinkedList<String> trainConsist = new LinkedList<>();
+        // Create a LinkedHashSet to store train formation
+        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
 
-        // Add bogies
-        trainConsist.add("Engine");
-        trainConsist.add("Sleeper");
-        trainConsist.add("AC");
-        trainConsist.add("Cargo");
-        trainConsist.add("Guard");
+        // Attach bogies
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        System.out.println("\nInitial Train Consist:");
-        System.out.println(trainConsist);
+        // Attempt to add a duplicate bogie
+        trainFormation.add("Sleeper");
 
-        // Insert Pantry Car
-        trainConsist.add(2, "Pantry Car");
-
-        System.out.println("\nAfter Adding Pantry Car:");
-        System.out.println(trainConsist);
-
-        // Remove first and last bogie
-        trainConsist.removeFirst();
-        trainConsist.removeLast();
-
-        System.out.println("\nFinal Train Consist:");
-        System.out.println(trainConsist);
+        // Display final train formation
+        System.out.println("\nTrain Formation:");
+        System.out.println(trainFormation);
 
 
     }
