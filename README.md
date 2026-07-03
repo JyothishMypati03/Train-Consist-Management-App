@@ -1,8 +1,8 @@
-#  UC3: Track Unique Bogie IDs (Set – HashSet)
+# 📌 UC4: Maintain Ordered Train Consist (LinkedList)
 
 ## 🎯 Goal
 
-Ensure that no duplicate bogie IDs are added to the train by using the `HashSet` collection.
+Maintain the physical order of train bogies by using a `LinkedList`, allowing efficient insertion and removal of bogies from the beginning, middle, and end of the train consist.
 
 ---
 
@@ -14,32 +14,42 @@ Ensure that no duplicate bogie IDs are added to the train by using the `HashSet`
 
 ## 🔄 Flow
 
-1. User adds bogie IDs.
-2. System stores bogie IDs in a `HashSet`.
-3. Duplicate bogie IDs are ignored automatically.
-4. Unique bogie IDs are displayed.
-5. Program continues execution.
+1. User creates the train consist.
+2. Bogies are added to the train.
+3. A Pantry Car is inserted at a specific position.
+4. The first and last bogies are removed.
+5. The final ordered train consist is displayed.
+6. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Set Interface
-- HashSet
-- add() Method
-- Automatic Deduplication
-- Uniqueness of Elements
-- Hash-Based Storage
+- List Interface
+- LinkedList
+- Node-Based Data Structure
+- addFirst() Method
+- addLast() Method
+- add(index, element) Method
+- removeFirst() Method
+- removeLast() Method
+- Order Preservation
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a `HashSet<String>` for bogie IDs.
-- Add multiple bogie IDs.
-- Intentionally add duplicate IDs.
-- Display the final set.
-- Verify that duplicate IDs are removed automatically.
+- Create a `LinkedList<String>` to represent the train consist.
+- Add the following bogies:
+    - Engine
+    - Sleeper
+    - AC
+    - Cargo
+    - Guard
+- Insert **Pantry Car** at position **2**.
+- Remove the first bogie.
+- Remove the last bogie.
+- Display the final ordered train consist.
 
 ---
 
@@ -86,31 +96,35 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Bogie IDs:
-[BG101, BG102, BG103]
-```
+Initial Train Consist:
+[Engine, Sleeper, AC, Cargo, Guard]
 
-> Duplicate entries are automatically ignored by `HashSet`.
+After Inserting Pantry Car:
+[Engine, Sleeper, Pantry Car, AC, Cargo, Guard]
+
+Final Train Consist:
+[Sleeper, Pantry Car, AC, Cargo]
+```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC3, the following Java concepts are understood:
+After completing UC4, the following Java concepts are understood:
 
-- Using the `Set` interface
-- Working with `HashSet`
-- Storing only unique elements
-- Preventing duplicate data automatically
-- Understanding unordered collections
-- Applying uniqueness constraints in real-world applications
+- Using the `LinkedList` collection
+- Maintaining the physical order of train bogies
+- Inserting elements at the beginning, middle, and end
+- Removing elements efficiently from both ends
+- Understanding node-based data structures
+- Learning when `LinkedList` is preferred over `ArrayList`
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc3-unique-bogie-ids
+feature/uc4-ordered-bogie-ids
 ```
 
 ---
@@ -118,7 +132,7 @@ feature/uc3-unique-bogie-ids
 ## 💬 Commit Message
 
 ```text
-feat(UC3): implement unique bogie ID management using HashSet
+feat(UC4): implement ordered train consist using LinkedList
 ```
 
 ---
@@ -128,3 +142,4 @@ feat(UC3): implement unique bogie ID management using HashSet
 - ✅ UC1 Completed
 - ✅ UC2 Completed
 - ✅ UC3 Completed
+- ✅ UC4 Completed
