@@ -1,8 +1,11 @@
 package com.bridgelabz.trainconsist.app;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import com.bridgelabz.trainconsist.model.Bogie;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class TrainApplication {
 
@@ -12,22 +15,27 @@ public class TrainApplication {
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
-        // Create a HashMap to store bogie-capacity mapping
-        HashMap<String, Integer> bogieCapacity = new HashMap<>();
+        // Create a List of Bogie objects
+        List<Bogie> passengerBogies = new ArrayList<>();
 
-        // Add bogie capacities
-        bogieCapacity.put("Sleeper", 72);
-        bogieCapacity.put("AC Chair", 48);
-        bogieCapacity.put("First Class", 24);
+        // Add passenger bogies
+        passengerBogies.add(new Bogie("Sleeper", 72));
+        passengerBogies.add(new Bogie("AC Chair", 48));
+        passengerBogies.add(new Bogie("First Class", 24));
 
-        System.out.println("\nBogie Capacity Details:");
+        System.out.println("\nBefore Sorting:");
 
-        // Iterate using entrySet()
-        for (Map.Entry<String, Integer> entry : bogieCapacity.entrySet()) {
+        for (Bogie bogie : passengerBogies) {
+            System.out.println(bogie);
+        }
 
-            System.out.println("Bogie : " + entry.getKey());
-            System.out.println("Capacity : " + entry.getValue());
-            System.out.println();
+        // Sort by capacity
+        passengerBogies.sort(Comparator.comparingInt(Bogie::getCapacity));
+
+        System.out.println("\nAfter Sorting by Capacity:");
+
+        for (Bogie bogie : passengerBogies) {
+            System.out.println(bogie);
         }
 
 

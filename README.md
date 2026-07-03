@@ -1,8 +1,8 @@
-# 📌 UC6: Map Bogie to Capacity (HashMap)
+# 📌 UC7: Sort Bogies by Capacity (Comparator)
 
 ## 🎯 Goal
 
-Associate each bogie with its seating or load capacity by using a `HashMap`, enabling efficient storage and retrieval of bogie capacity information.
+Sort passenger bogies based on their seating capacity by using a custom `Comparator`.
 
 ---
 
@@ -14,37 +14,38 @@ Associate each bogie with its seating or load capacity by using a `HashMap`, ena
 
 ## 🔄 Flow
 
-1. User creates a bogie-capacity mapping.
-2. Bogie names are stored as keys.
-3. Capacity values are stored as values.
-4. Entries are inserted into a `HashMap`.
-5. The system iterates through the map using `entrySet()`.
-6. Each bogie along with its corresponding capacity is displayed.
-7. Program continues execution.
+1. User creates passenger bogie objects.
+2. Bogies are stored in a `List`.
+3. The system applies a `Comparator` to sort the bogies by seating capacity.
+4. Sorted passenger bogies are displayed.
+5. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Map Interface
-- HashMap
-- put() Method
-- Key–Value Pair Mapping
-- entrySet() Iteration
-- Fast Lookup Using Keys
+- Comparator Interface
+- Custom Objects
+- List Collection
+- sort() Method
+- Comparator.comparingInt()
+- Lambda Expressions
+- Separation of Data and Business Logic
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a `HashMap<String, Integer>` to store bogie-capacity information.
-- Add the following bogie-capacity mappings:
-    - Sleeper → 72
-    - AC Chair → 48
-    - First Class → 24
-- Use the `put()` method to insert each mapping.
-- Iterate through the map using `entrySet()`.
-- Display each bogie along with its seating capacity.
+- Create a `Bogie` class with the following fields:
+    - name
+    - capacity
+- Create a `List<Bogie>` to store passenger bogies.
+- Add the following bogies:
+    - Sleeper (72 Seats)
+    - AC Chair (48 Seats)
+    - First Class (24 Seats)
+- Sort the bogies using `Comparator.comparingInt()`.
+- Display the sorted passenger bogies.
 
 ---
 
@@ -64,8 +65,11 @@ TrainConsistManagement
 │   │   └── com
 │   │       └── bridgelabz
 │   │           └── trainconsist
-│   │               └── app
-│   │                   └── TrainApplication.java
+│   │               ├── app
+│   │               │   └── TrainApplication.java
+│   │               │
+│   │               └── model
+│   │                   └── Bogie.java
 │   │
 │   └── resources
 │
@@ -77,9 +81,13 @@ TrainConsistManagement
 ## 🏗 Package Structure
 
 ```text
-com.bridgelabz.trainconsist.app
-        │
-        └── TrainApplication.java
+com.bridgelabz.trainconsist
+│
+├── app
+│   └── TrainApplication.java
+│
+└── model
+    └── Bogie.java
 ```
 
 ---
@@ -91,42 +99,46 @@ com.bridgelabz.trainconsist.app
    Train Consist Management App
 ======================================
 
-Bogie Capacity Details:
+Before Sorting:
 
-Sleeper -> 72
-AC Chair -> 48
-First Class -> 24
+Bogie Name : Sleeper, Capacity : 72 Seats
+Bogie Name : AC Chair, Capacity : 48 Seats
+Bogie Name : First Class, Capacity : 24 Seats
+
+After Sorting by Capacity:
+
+Bogie Name : First Class, Capacity : 24 Seats
+Bogie Name : AC Chair, Capacity : 48 Seats
+Bogie Name : Sleeper, Capacity : 72 Seats
 ```
-
-> **Note:** `HashMap` stores data as **key–value pairs**. The iteration order is **not guaranteed**, so the output order may vary.
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC6, the following Java concepts are understood:
+After completing UC7, the following Java concepts are understood:
 
-- Using the `HashMap` collection
-- Associating keys with values using key–value pairs
-- Storing bogie capacities efficiently
-- Iterating through a map using `entrySet()`
-- Performing fast lookups using keys
-- Understanding when to use a `Map` instead of a `List` or `Set`
+- Creating custom Java objects
+- Storing objects inside collections
+- Applying business rules using `Comparator`
+- Sorting objects based on custom properties
+- Using `Comparator.comparingInt()` for integer comparison
+- Separating object data from sorting logic
+- Preparing object collections for enterprise-level applications
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc6-map-bogie-capacity
-```
+feature/uc7-sort-by-capacity
 
 ---
 
 ## 💬 Commit Message
 
 ```text
-feat(UC6): map bogies to seating capacity using HashMap
+feat(UC7): sort passenger bogies by capacity using Comparator
 ```
 
 ---
@@ -139,3 +151,4 @@ feat(UC6): map bogies to seating capacity using HashMap
 - ✅ UC4 Completed
 - ✅ UC5 Completed
 - ✅ UC6 Completed
+- ✅ UC7 Completed
