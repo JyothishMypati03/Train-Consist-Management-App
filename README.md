@@ -1,8 +1,8 @@
-# 📌 UC8: Filter Passenger Bogies Using Streams
+# 📌 UC9: Group Bogies by Type (Collectors.groupingBy)
 
 ## 🎯 Goal
 
-Filter passenger bogies based on their seating capacity using the Java **Stream API** and display only the bogies that satisfy the specified condition.
+Group bogies into categories using Stream collectors so that passenger bogies and goods bogies are displayed in a structured form.
 
 ---
 
@@ -14,11 +14,11 @@ Filter passenger bogies based on their seating capacity using the Java **Stream 
 
 ## 🔄 Flow
 
-1. User creates a list of passenger bogies.
+1. User creates a list of bogies.
 2. The system converts the list into a stream.
-3. A filter condition is applied based on seating capacity.
-4. Matching bogies are collected into a new list.
-5. Filtered passenger bogies are displayed.
+3. `Collectors.groupingBy()` is applied with a classification function.
+4. Bogies are grouped into a `Map`.
+5. The grouped result is displayed.
 6. Program continues execution.
 
 ---
@@ -26,29 +26,30 @@ Filter passenger bogies based on their seating capacity using the Java **Stream 
 ## 💡 Java Concepts Covered
 
 - Stream API
-- stream() Method
-- filter() Operation
-- Lambda Expressions
-- collect() / toList()
-- Declarative Programming Style
+- Collectors.groupingBy()
+- Stream Pipeline
+- Map Output Structure
+- Lambda Classification Logic
+- Data Aggregation
+- Structured Transformation
 
 ---
 
 ## 📋 Functional Requirements
 
-- Reuse the `Bogie` class created in UC7.
-- Create a `List<Bogie>` containing passenger bogies.
+- Reuse the `Bogie` class created in UC7 and UC8.
+- Add a `type` field to the `Bogie` class.
+- Create a `List<Bogie>` containing bogies.
 - Add the following bogies:
-    - Sleeper (72 Seats)
-    - AC Chair (48 Seats)
-    - First Class (24 Seats)
-- Convert the list into a stream using `stream()`.
-- Apply the filter condition:
-  ```java
-  b -> b.getCapacity() > 60
-  ```
-- Collect the filtered result into a new list.
-- Display the filtered passenger bogies.
+    - Sleeper (Passenger, 72 Seats)
+    - AC Chair (Passenger, 48 Seats)
+    - First Class (Passenger, 24 Seats)
+    - Cargo (Goods, 100 Seats)
+    - Oil Tanker (Goods, 80 Seats)
+- Create a stream using `stream()`.
+- Apply `Collectors.groupingBy()` using the bogie type.
+- Store the result in `Map<String, List<Bogie>>`.
+- Print the grouped bogie structure.
 
 ---
 
@@ -102,36 +103,37 @@ com.bridgelabz.trainconsist
    Train Consist Management App
 ======================================
 
-All Passenger Bogies:
+Grouped Bogies:
 
-Bogie Name : Sleeper, Capacity : 72 Seats
-Bogie Name : AC Chair, Capacity : 48 Seats
-Bogie Name : First Class, Capacity : 24 Seats
+Passenger Bogies:
+Bogie Name : Sleeper, Type : Passenger, Capacity : 72 Seats
+Bogie Name : AC Chair, Type : Passenger, Capacity : 48 Seats
+Bogie Name : First Class, Type : Passenger, Capacity : 24 Seats
 
-Passenger Bogies with Capacity > 60:
-
-Bogie Name : Sleeper, Capacity : 72 Seats
+Goods Bogies:
+Bogie Name : Cargo, Type : Goods, Capacity : 100 Seats
+Bogie Name : Oil Tanker, Type : Goods, Capacity : 80 Seats
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC8, the following Java concepts are understood:
+After completing UC9, the following Java concepts are understood:
 
-- Using the Java Stream API for collection processing
-- Converting collections into streams using `stream()`
-- Filtering objects using the `filter()` operation
-- Writing concise filtering logic with lambda expressions
-- Collecting filtered results into a new list using `toList()`
-- Understanding declarative programming for cleaner and more maintainable code
+- Grouping objects into categories using `Collectors.groupingBy()`
+- Using `Map<String, List<Bogie>>` for structured data
+- Applying stream collectors to build reports
+- Organizing flat collections into meaningful groups
+- Adding a `type` field to objects for classification
+- Preparing data for analytics and dashboard-style output
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc8-filter-passengers
+feature/uc9-group-by-type
 ```
 
 ---
@@ -139,7 +141,7 @@ feature/uc8-filter-passengers
 ## 💬 Commit Message
 
 ```text
-feat(UC8): filter passenger bogies using Java Stream API
+feat(UC9): group bogies by type using Collectors.groupingBy
 ```
 
 ---
@@ -154,3 +156,4 @@ feat(UC8): filter passenger bogies using Java Stream API
 - ✅ UC6 Completed
 - ✅ UC7 Completed
 - ✅ UC8 Completed
+- ✅ UC9 Completed
