@@ -1,7 +1,6 @@
 package com.bridgelabz.trainconsist.app;
-import com.bridgelabz.trainconsist.exception.InvalidBogieException;
-import com.bridgelabz.trainconsist.model.Bogie;
-import com.bridgelabz.trainconsist.model.PassengerBogie;
+import com.bridgelabz.trainconsist.exception.CargoSafetyException;
+import com.bridgelabz.trainconsist.model.GoodsBogie;
 
 import java.util.*;
 
@@ -13,21 +12,22 @@ public class TrainApplication {
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
+        GoodsBogie goodsBogie = new GoodsBogie("Rectangular");
+
         try {
 
-            PassengerBogie sleeper = new PassengerBogie("Sleeper", 72);
-            System.out.println(sleeper);
+            System.out.println("\nAssigning Cargo...");
+            goodsBogie.assignCargo("Petroleum");
 
-            PassengerBogie acChair = new PassengerBogie("AC Chair", 48);
-            System.out.println(acChair);
+            System.out.println(goodsBogie);
 
-            // Invalid Capacity
-            PassengerBogie firstClass = new PassengerBogie("First Class", 0);
-            System.out.println(firstClass);
+        } catch (CargoSafetyException e) {
 
-        } catch (InvalidBogieException e) {
+            System.out.println("Exception: " + e.getMessage());
 
-            System.out.println("\nException: " + e.getMessage());
+        } finally {
+
+            System.out.println("Cargo Assignment Process Completed.");
 
         }
 

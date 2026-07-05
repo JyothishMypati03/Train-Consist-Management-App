@@ -1,8 +1,8 @@
-# 📌 UC14: Handle Invalid Bogie Capacity (Custom Exception)
+# 📌 UC15: Safe Cargo Assignment Using try-catch-finally
 
 ## 🎯 Goal
 
-Prevent invalid passenger bogies from being added to the train by enforcing capacity rules using a custom exception.
+Safely handle unsafe cargo assignments without crashing the Train Consist Management App by using `try`, `catch`, and `finally` blocks along with a custom runtime exception.
 
 ---
 
@@ -14,36 +14,41 @@ Prevent invalid passenger bogies from being added to the train by enforcing capa
 
 ## 🔄 Flow
 
-1. User attempts to create a passenger bogie.
-2. The system validates the bogie capacity.
-3. If the capacity is less than or equal to zero, a custom exception is thrown.
-4. If the capacity is valid, the bogie is created successfully.
-5. The exception is handled appropriately.
-6. The program continues execution safely.
+1. User attempts to assign cargo to a goods bogie.
+2. The system checks the compatibility between the bogie shape and cargo.
+3. If the cargo assignment is unsafe, a custom runtime exception is thrown.
+4. The exception is caught using the `catch` block.
+5. An appropriate error message is displayed.
+6. The `finally` block executes cleanup or logging operations.
+7. The application continues execution safely.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Custom Exception
-- Exception Inheritance
+- try Block
+- catch Block
+- finally Block
+- Runtime Exception
+- Custom Runtime Exception
 - throw Keyword
-- throws Declaration
-- try-catch Block
-- Fail-Fast Validation
-- Business Rule Enforcement
+- Graceful Exception Handling
+- Defensive Programming
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a custom exception class `InvalidBogieException`.
-- Extend the `Exception` class.
-- Validate the passenger bogie capacity inside the constructor.
-- Throw `InvalidBogieException` when the capacity is less than or equal to zero.
-- Declare the constructor using `throws InvalidBogieException`.
-- Catch the exception using a `try-catch` block.
-- Ensure invalid passenger bogies are never added to the train consist.
+- Create a custom runtime exception class `CargoSafetyException`.
+- Create a `GoodsBogie` class with:
+    - type
+    - cargo
+- Validate cargo compatibility before assignment.
+- Throw `CargoSafetyException` when:
+    - A **Rectangular** bogie is assigned **Petroleum**.
+- Handle the exception using a `try-catch` block.
+- Execute the `finally` block for completion logging.
+- Ensure the application continues execution after handling the exception.
 
 ---
 
@@ -72,7 +77,8 @@ TrainConsistManagement
 │   │               │   └── GoodsBogie.java
 │   │               │
 │   │               └── exception
-│   │                   └── InvalidBogieException.java
+│   │                   ├── InvalidBogieException.java
+│   │                   └── CargoSafetyException.java
 │   │
 │   └── resources
 │
@@ -95,37 +101,42 @@ com.bridgelabz.trainconsist
 │   └── GoodsBogie.java
 │
 └── exception
-    └── InvalidBogieException.java
+    ├── InvalidBogieException.java
+    └── CargoSafetyException.java
 ```
 
 ---
 
 ## ▶️ Sample Output
 
-### Valid Capacity
+### Valid Cargo Assignment
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-PassengerBogie{name='Sleeper', capacity=72}
-PassengerBogie{name='AC Chair', capacity=48}
+Assigning Cargo...
+
+GoodsBogie{type='Rectangular', cargo='Coal'}
+
+Cargo Assignment Process Completed.
 
 Program Continues Safely...
 ```
 
-### Invalid Capacity
+### Invalid Cargo Assignment
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-PassengerBogie{name='Sleeper', capacity=72}
-PassengerBogie{name='AC Chair', capacity=48}
+Assigning Cargo...
 
-Exception: Invalid Bogie Capacity! Capacity must be greater than zero.
+Exception: Petroleum cannot be assigned to a Rectangular Bogie.
+
+Cargo Assignment Process Completed.
 
 Program Continues Safely...
 ```
@@ -134,23 +145,23 @@ Program Continues Safely...
 
 ## 📈 Learning Outcome
 
-After completing UC14, the following Java concepts are understood:
+After completing UC15, the following Java concepts are understood:
 
-- Creating custom checked exceptions
-- Extending the `Exception` class
-- Throwing exceptions using the `throw` keyword
-- Declaring exceptions using the `throws` keyword
-- Handling exceptions using `try-catch`
-- Applying fail-fast validation during object creation
-- Enforcing business rules through custom exceptions
-- Preventing invalid data from entering the application
+- Creating custom runtime exceptions
+- Understanding the difference between checked and unchecked exceptions
+- Throwing runtime exceptions using the `throw` keyword
+- Handling runtime exceptions using `try-catch`
+- Executing mandatory code using the `finally` block
+- Implementing graceful failure handling
+- Applying business rules during runtime operations
+- Improving application reliability through defensive programming
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc14-handle-invalid-capacity
+feature/uc15-safe-cargo-assignment
 ```
 
 ---
@@ -158,7 +169,7 @@ feature/uc14-handle-invalid-capacity
 ## 💬 Commit Message
 
 ```text
-feat(UC14): handle invalid passenger bogie capacity using custom exception
+feat(UC15): implement safe cargo assignment using try-catch-finally
 ```
 
 ---
@@ -179,3 +190,4 @@ feat(UC14): handle invalid passenger bogie capacity using custom exception
 - ✅ UC12 Completed
 - ✅ UC13 Completed
 - ✅ UC14 Completed
+- ✅ UC15 Completed
