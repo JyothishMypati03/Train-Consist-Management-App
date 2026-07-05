@@ -1,8 +1,8 @@
-# 📌 UC12: Safety Compliance Check for Goods Bogies
+# 📌 UC13: Performance Comparison (Loops vs Streams)
 
 ## 🎯 Goal
 
-Validate goods bogies against railway safety rules using the Java Stream API and `allMatch()` to ensure that only safe cargo configurations are allowed.
+Compare the performance of traditional loop-based processing and Stream API-based processing by measuring execution time using `System.nanoTime()`.
 
 ---
 
@@ -14,41 +14,43 @@ Validate goods bogies against railway safety rules using the Java Stream API and
 
 ## 🔄 Flow
 
-1. User creates a list of goods bogies.
-2. The system converts the collection into a stream.
-3. `allMatch()` validates every bogie against the safety rule.
-4. Conditional logic checks whether cylindrical bogies carry only petroleum.
-5. The validation result is stored in a boolean variable.
-6. The system displays whether the train is safety compliant.
-7. Program continues execution.
+1. User prepares a collection of bogies.
+2. The system records the start time using `System.nanoTime()`.
+3. Filtering is performed using a traditional loop.
+4. The execution time of the loop is calculated.
+5. The system records the start time again.
+6. Filtering is performed using the Stream API.
+7. The execution time of the stream is calculated.
+8. Both execution times are displayed.
+9. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
+- System.nanoTime()
+- Performance Benchmarking
+- Loop-Based Processing
 - Stream API
 - stream() Method
-- allMatch() Terminal Operation
-- Lambda Expressions
-- Conditional Logic in Streams
-- Short-Circuit Evaluation
-- Business Rule Validation
+- filter() Operation
+- Micro-Performance Measurement
+- Evidence-Driven Optimization
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a `GoodsBogie` class with the following fields:
-    - type
-    - cargo
-- Create a `List<GoodsBogie>` to store goods bogies.
-- Add goods bogies with different types and cargo.
-- Convert the collection into a stream using `stream()`.
-- Apply the following business rule:
-    - **Cylindrical → Petroleum only**
-- Validate all bogies using `allMatch()`.
-- Store the validation result in a boolean variable.
-- Display whether the train is safety compliant.
+- Reuse the `Bogie` class created in previous use cases.
+- Create a `List<Bogie>` containing passenger and goods bogies.
+- Record the start time using `System.nanoTime()`.
+- Perform filtering using a traditional `for` loop.
+- Record the end time and calculate the loop execution time.
+- Record the start time again.
+- Perform filtering using the Stream API.
+- Record the end time and calculate the stream execution time.
+- Display the filtered bogies.
+- Display the execution time for both approaches.
 
 ---
 
@@ -99,56 +101,50 @@ com.bridgelabz.trainconsist
 
 ## ▶️ Sample Output
 
-### Valid Goods Bogies
-
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Goods Bogies:
+Loop-Based Filtering:
 
-GoodsBogie{type='Cylindrical', cargo='Petroleum'}
-GoodsBogie{type='Rectangular', cargo='Coal'}
-GoodsBogie{type='Rectangular', cargo='Cement'}
+Bogie Name : Sleeper, Type : Passenger, Capacity : 72 Seats
+Bogie Name : Cargo, Type : Goods, Capacity : 100 Seats
+Bogie Name : Oil Tanker, Type : Goods, Capacity : 80 Seats
 
-Train Safety Compliance : PASSED
+Stream-Based Filtering:
+
+Bogie Name : Sleeper, Type : Passenger, Capacity : 72 Seats
+Bogie Name : Cargo, Type : Goods, Capacity : 100 Seats
+Bogie Name : Oil Tanker, Type : Goods, Capacity : 80 Seats
+
+Performance Comparison
+
+Loop Execution Time   : 185700 ns
+Stream Execution Time : 263400 ns
 ```
 
-### Invalid Goods Bogies
-
-```text
-======================================
-   Train Consist Management App
-======================================
-
-Goods Bogies:
-
-GoodsBogie{type='Cylindrical', cargo='Coal'}
-GoodsBogie{type='Rectangular', cargo='Cement'}
-
-Train Safety Compliance : FAILED
-```
+> **Note:** The execution time will vary on every execution depending on the system configuration, JVM optimizations, and current CPU load.
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC12, the following Java concepts are understood:
+After completing UC13, the following Java concepts are understood:
 
-- Using the Java Stream API for validation
-- Validating collections using `allMatch()`
-- Writing business rules with lambda expressions
-- Applying conditional logic inside stream pipelines
-- Understanding short-circuit evaluation
-- Enforcing real-world safety rules in software systems
+- Measuring execution time using `System.nanoTime()`
+- Benchmarking different implementations
+- Comparing loop-based and Stream API-based processing
+- Understanding that performance should be measured instead of assumed
+- Applying evidence-driven optimization techniques
+- Developing awareness of performance considerations in enterprise applications
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc12-safety-compliance
+	feature/uc13-performance-test
 ```
 
 ---
@@ -156,7 +152,7 @@ feature/uc12-safety-compliance
 ## 💬 Commit Message
 
 ```text
-feat(UC12): implement goods bogie safety compliance using Stream allMatch
+feat(UC13): compare loop and stream performance using System.nanoTime
 ```
 
 ---
@@ -175,3 +171,4 @@ feat(UC12): implement goods bogie safety compliance using Stream allMatch
 - ✅ UC10 Completed
 - ✅ UC11 Completed
 - ✅ UC12 Completed
+- ✅ UC13 Completed
