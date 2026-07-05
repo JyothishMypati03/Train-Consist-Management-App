@@ -3,27 +3,39 @@ import java.util.*;
 
 public class TrainApplication {
 
-    public static  void main(String[] args){
+    public static  void main(String[] args) {
 
         System.out.println("======================================");
         System.out.println("   Train Consist Management App");
         System.out.println("======================================");
 
-        String[] bogieNames = {
-                "Sleeper",
-                "AC Chair",
-                "First Class",
-                "Cargo",
-                "Guard"
+        String[] bogieIds = {
+                "BG101",
+                "BG205",
+                "BG309",
+                "BG450",
+                "BG512"
         };
 
-        System.out.println("\nBefore Sorting:");
-        System.out.println(Arrays.toString(bogieNames));
+        Scanner scanner = new Scanner(System.in);
 
-        Arrays.sort(bogieNames);
+        System.out.print("\nEnter Bogie ID to Search: ");
+        String searchId = scanner.nextLine();
 
-        System.out.println("\nAfter Sorting:");
-        System.out.println(Arrays.toString(bogieNames));
+        boolean found = false;
+
+        // Linear Search
+        for (int i = 0; i < bogieIds.length; i++) {
+
+            if (bogieIds[i].equals(searchId)) {
+                found = true;
+                System.out.println("\nBogie Found at Index : " + i);
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("\nBogie ID Not Found.");
+        }
     }
-
 }

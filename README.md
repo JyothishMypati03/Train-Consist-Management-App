@@ -1,8 +1,8 @@
-# 📌 UC17: Sort Bogie Names Using Arrays.sort()
+# 📌 UC18: Linear Search for Bogie ID (Array-Based Searching)
 
 ## 🎯 Goal
 
-Sort bogie type names alphabetically using Java's built-in `Arrays.sort()` method instead of implementing a manual sorting algorithm.
+Search and identify a specific bogie ID from an unsorted array using the **Linear Search** algorithm.
 
 ---
 
@@ -14,40 +14,44 @@ Sort bogie type names alphabetically using Java's built-in `Arrays.sort()` metho
 
 ## 🔄 Flow
 
-1. User provides an array of bogie type names.
-2. The system displays the original array.
-3. The system calls `Arrays.sort()` on the array.
-4. Java sorts the bogie names alphabetically.
-5. The sorted array is displayed using `Arrays.toString()`.
-6. Program continues execution.
+1. User provides a list of bogie IDs.
+2. User enters a bogie ID to search.
+3. The system traverses the array sequentially.
+4. Each bogie ID is compared with the search key using `equals()`.
+5. If a match is found, the search stops immediately.
+6. The search result is displayed.
+7. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
 - Arrays
-- Arrays.sort()
-- Arrays.toString()
-- Natural Ordering
-- Library-Based Sorting
-- Optimized Sorting Algorithms
-- Time Complexity O(n log n)
+- Linear Search Algorithm
+- Sequential Traversal
+- String Comparison using `equals()`
+- Looping (`for` Loop)
+- `break` Statement
+- Boolean Flag
+- Time Complexity O(n)
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create an array of bogie type names.
-- Store sample bogie names such as:
-    - Sleeper
-    - AC Chair
-    - First Class
-    - Cargo
-    - Guard
-- Display the array before sorting.
-- Sort the array using `Arrays.sort()`.
-- Display the sorted array using `Arrays.toString()`.
-- Do **not** implement manual swap logic or Bubble Sort.
+- Create an array of bogie IDs.
+- Store sample IDs such as:
+    - BG101
+    - BG205
+    - BG309
+    - BG450
+    - BG512
+- Accept a bogie ID from the user.
+- Traverse the array using a `for` loop.
+- Compare each bogie ID using the `equals()` method.
+- Stop searching immediately when a match is found.
+- Display whether the bogie ID exists along with its index.
+- Display an appropriate message if the bogie ID is not found.
 
 ---
 
@@ -108,38 +112,51 @@ com.bridgelabz.trainconsist
 
 ## ▶️ Sample Output
 
+### Bogie Found
+
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Before Sorting:
-[Sleeper, AC Chair, First Class, Cargo, Guard]
+Enter Bogie ID to Search: BG309
 
-After Sorting:
-[AC Chair, Cargo, First Class, Guard, Sleeper]
+Bogie Found at Index : 2
+```
+
+### Bogie Not Found
+
+```text
+======================================
+   Train Consist Management App
+======================================
+
+Enter Bogie ID to Search: BG999
+
+Bogie ID Not Found.
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC17, the following Java concepts are understood:
+After completing UC18, the following Java concepts are understood:
 
-- Using the `Arrays` utility class
-- Sorting arrays with `Arrays.sort()`
-- Displaying arrays using `Arrays.toString()`
-- Understanding natural ordering of strings
-- Recognizing the performance advantage of library-based sorting
-- Writing clean and maintainable code using Java's standard library
-- Understanding the difference between manual sorting and optimized built-in sorting
+- Understanding the Linear Search algorithm
+- Traversing arrays sequentially
+- Comparing strings safely using `equals()`
+- Using a boolean flag to track search results
+- Stopping execution early using the `break` statement
+- Understanding why Linear Search works on unsorted data
+- Learning the **O(n)** time complexity of Linear Search
+- Building a foundation for optimized searching techniques such as Binary Search
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc17-arrays-sort-bogie-names
+feature/uc18-linear-search-bogie-id
 ```
 
 ---
@@ -147,7 +164,7 @@ feature/uc17-arrays-sort-bogie-names
 ## 💬 Commit Message
 
 ```text
-feat(UC17): sort bogie names alphabetically using Arrays.sort
+feat(UC18): implement linear search for bogie IDs
 ```
 
 ---
@@ -171,3 +188,4 @@ feat(UC17): sort bogie names alphabetically using Arrays.sort
 - ✅ UC15 Completed
 - ✅ UC16 Completed
 - ✅ UC17 Completed
+- ✅ UC18 Completed
