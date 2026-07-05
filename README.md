@@ -1,8 +1,8 @@
-# 📌 UC16: Sort Passenger Bogies by Capacity (Bubble Sort – Algorithm Intro)
+# 📌 UC17: Sort Bogie Names Using Arrays.sort()
 
 ## 🎯 Goal
 
-Sort passenger bogie capacities using the **Bubble Sort** algorithm without using built-in sorting methods such as `Arrays.sort()` or `Collections.sort()`.
+Sort bogie type names alphabetically using Java's built-in `Arrays.sort()` method instead of implementing a manual sorting algorithm.
 
 ---
 
@@ -14,42 +14,40 @@ Sort passenger bogie capacities using the **Bubble Sort** algorithm without usin
 
 ## 🔄 Flow
 
-1. User provides passenger bogie capacities.
-2. The system stores the capacities in an array.
-3. Adjacent elements are compared.
-4. If the left element is greater than the right element, they are swapped.
-5. Multiple passes continue until the array is completely sorted.
-6. The sorted capacities are displayed.
-7. Program continues execution.
+1. User provides an array of bogie type names.
+2. The system displays the original array.
+3. The system calls `Arrays.sort()` on the array.
+4. Java sorts the bogie names alphabetically.
+5. The sorted array is displayed using `Arrays.toString()`.
+6. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Bubble Sort Algorithm
 - Arrays
-- Nested Loops
-- Swapping Logic
-- Array Traversal
-- Algorithmic Thinking
-- Time Complexity O(n²)
+- Arrays.sort()
+- Arrays.toString()
+- Natural Ordering
+- Library-Based Sorting
+- Optimized Sorting Algorithms
+- Time Complexity O(n log n)
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create an array of passenger bogie capacities.
-- Store sample capacities such as:
-    - 72
-    - 48
-    - 24
-    - 56
-    - 90
-- Use nested `for` loops to compare adjacent elements.
-- Swap elements whenever the left element is greater than the right element.
-- Continue the process until the array is sorted.
-- Display the capacities before and after sorting.
-- Do **not** use `Arrays.sort()` or `Collections.sort()`.
+- Create an array of bogie type names.
+- Store sample bogie names such as:
+    - Sleeper
+    - AC Chair
+    - First Class
+    - Cargo
+    - Guard
+- Display the array before sorting.
+- Sort the array using `Arrays.sort()`.
+- Display the sorted array using `Arrays.toString()`.
+- Do **not** implement manual swap logic or Bubble Sort.
 
 ---
 
@@ -116,32 +114,32 @@ com.bridgelabz.trainconsist
 ======================================
 
 Before Sorting:
-72 48 24 56 90
+[Sleeper, AC Chair, First Class, Cargo, Guard]
 
 After Sorting:
-24 48 56 72 90
+[AC Chair, Cargo, First Class, Guard, Sleeper]
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC16, the following Java concepts are understood:
+After completing UC17, the following Java concepts are understood:
 
-- Understanding the Bubble Sort algorithm
-- Working with arrays using indexes
-- Using nested loops for repeated comparisons
-- Swapping array elements using a temporary variable
-- Learning how manual sorting algorithms work internally
-- Understanding why Bubble Sort has **O(n²)** time complexity
-- Building a foundation for advanced sorting algorithms
+- Using the `Arrays` utility class
+- Sorting arrays with `Arrays.sort()`
+- Displaying arrays using `Arrays.toString()`
+- Understanding natural ordering of strings
+- Recognizing the performance advantage of library-based sorting
+- Writing clean and maintainable code using Java's standard library
+- Understanding the difference between manual sorting and optimized built-in sorting
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc16-bubble-sort
+feature/uc17-arrays-sort-bogie-names
 ```
 
 ---
@@ -149,7 +147,7 @@ feature/uc16-bubble-sort
 ## 💬 Commit Message
 
 ```text
-feat(UC16): implement bubble sort for passenger bogie capacities
+feat(UC17): sort bogie names alphabetically using Arrays.sort
 ```
 
 ---
@@ -172,4 +170,4 @@ feat(UC16): implement bubble sort for passenger bogie capacities
 - ✅ UC14 Completed
 - ✅ UC15 Completed
 - ✅ UC16 Completed
-```
+- ✅ UC17 Completed
