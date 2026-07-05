@@ -1,8 +1,8 @@
-# 📌 UC11: Validate Train ID & Cargo Codes (Regex)
+# 📌 UC12: Safety Compliance Check for Goods Bogies
 
 ## 🎯 Goal
 
-Validate Train ID and Cargo Code formats using **Regular Expressions (Regex)** to ensure that only correctly formatted input is accepted before further processing.
+Validate goods bogies against railway safety rules using the Java Stream API and `allMatch()` to ensure that only safe cargo configurations are allowed.
 
 ---
 
@@ -14,37 +14,41 @@ Validate Train ID and Cargo Code formats using **Regular Expressions (Regex)** t
 
 ## 🔄 Flow
 
-1. User enters the Train ID.
-2. User enters the Cargo Code.
-3. The system compiles the regular expression patterns.
-4. `Matcher` validates the user input against the patterns.
-5. If the input matches the required format, it is accepted.
-6. Otherwise, an error message is displayed.
+1. User creates a list of goods bogies.
+2. The system converts the collection into a stream.
+3. `allMatch()` validates every bogie against the safety rule.
+4. Conditional logic checks whether cylindrical bogies carry only petroleum.
+5. The validation result is stored in a boolean variable.
+6. The system displays whether the train is safety compliant.
 7. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Regular Expressions (Regex)
-- Pattern Class
-- Matcher Class
-- matches() Method
-- Format Enforcement
-- Data Integrity Validation
+- Stream API
+- stream() Method
+- allMatch() Terminal Operation
+- Lambda Expressions
+- Conditional Logic in Streams
+- Short-Circuit Evaluation
+- Business Rule Validation
 
 ---
 
 ## 📋 Functional Requirements
 
-- Define a regex pattern for Train ID:
-    - `TRN-\\d{4}`
-- Define a regex pattern for Cargo Code:
-    - `PET-[A-Z]{2}`
-- Compile the regex patterns using the `Pattern` class.
-- Create `Matcher` objects for the user input.
-- Validate the input using the `matches()` method.
-- Display whether the Train ID and Cargo Code are valid or invalid.
+- Create a `GoodsBogie` class with the following fields:
+    - type
+    - cargo
+- Create a `List<GoodsBogie>` to store goods bogies.
+- Add goods bogies with different types and cargo.
+- Convert the collection into a stream using `stream()`.
+- Apply the following business rule:
+    - **Cylindrical → Petroleum only**
+- Validate all bogies using `allMatch()`.
+- Store the validation result in a boolean variable.
+- Display whether the train is safety compliant.
 
 ---
 
@@ -68,7 +72,8 @@ TrainConsistManagement
 │   │               │   └── TrainApplication.java
 │   │               │
 │   │               └── model
-│   │                   └── Bogie.java
+│   │                   ├── Bogie.java
+│   │                   └── GoodsBogie.java
 │   │
 │   └── resources
 │
@@ -86,60 +91,64 @@ com.bridgelabz.trainconsist
 │   └── TrainApplication.java
 │
 └── model
-    └── Bogie.java
+    ├── Bogie.java
+    └── GoodsBogie.java
 ```
 
 ---
 
 ## ▶️ Sample Output
 
-### Valid Input
+### Valid Goods Bogies
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Enter Train ID : TRN-1234
-Enter Cargo Code : PET-AB
+Goods Bogies:
 
-Train ID is Valid.
-Cargo Code is Valid.
+GoodsBogie{type='Cylindrical', cargo='Petroleum'}
+GoodsBogie{type='Rectangular', cargo='Coal'}
+GoodsBogie{type='Rectangular', cargo='Cement'}
+
+Train Safety Compliance : PASSED
 ```
 
-### Invalid Input
+### Invalid Goods Bogies
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Enter Train ID : TRAIN12
-Enter Cargo Code : PET-123
+Goods Bogies:
 
-Train ID is Invalid.
-Cargo Code is Invalid.
+GoodsBogie{type='Cylindrical', cargo='Coal'}
+GoodsBogie{type='Rectangular', cargo='Cement'}
+
+Train Safety Compliance : FAILED
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC11, the following Java concepts are understood:
+After completing UC12, the following Java concepts are understood:
 
-- Creating regular expressions for input validation
-- Compiling regex patterns using the `Pattern` class
-- Matching user input using the `Matcher` class
-- Validating complete strings using the `matches()` method
-- Enforcing business rules through input format validation
-- Improving application reliability by preventing invalid data entry
+- Using the Java Stream API for validation
+- Validating collections using `allMatch()`
+- Writing business rules with lambda expressions
+- Applying conditional logic inside stream pipelines
+- Understanding short-circuit evaluation
+- Enforcing real-world safety rules in software systems
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc11-regex-validation
+feature/uc12-safety-compliance
 ```
 
 ---
@@ -147,7 +156,7 @@ feature/uc11-regex-validation
 ## 💬 Commit Message
 
 ```text
-feat(UC11): validate train ID and cargo code using regular expressions
+feat(UC12): implement goods bogie safety compliance using Stream allMatch
 ```
 
 ---
@@ -165,3 +174,4 @@ feat(UC11): validate train ID and cargo code using regular expressions
 - ✅ UC9 Completed
 - ✅ UC10 Completed
 - ✅ UC11 Completed
+- ✅ UC12 Completed
