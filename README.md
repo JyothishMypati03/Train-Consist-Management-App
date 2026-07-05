@@ -1,8 +1,8 @@
-# 📌 UC15: Safe Cargo Assignment Using try-catch-finally
+# 📌 UC16: Sort Passenger Bogies by Capacity (Bubble Sort – Algorithm Intro)
 
 ## 🎯 Goal
 
-Safely handle unsafe cargo assignments without crashing the Train Consist Management App by using `try`, `catch`, and `finally` blocks along with a custom runtime exception.
+Sort passenger bogie capacities using the **Bubble Sort** algorithm without using built-in sorting methods such as `Arrays.sort()` or `Collections.sort()`.
 
 ---
 
@@ -14,41 +14,42 @@ Safely handle unsafe cargo assignments without crashing the Train Consist Manage
 
 ## 🔄 Flow
 
-1. User attempts to assign cargo to a goods bogie.
-2. The system checks the compatibility between the bogie shape and cargo.
-3. If the cargo assignment is unsafe, a custom runtime exception is thrown.
-4. The exception is caught using the `catch` block.
-5. An appropriate error message is displayed.
-6. The `finally` block executes cleanup or logging operations.
-7. The application continues execution safely.
+1. User provides passenger bogie capacities.
+2. The system stores the capacities in an array.
+3. Adjacent elements are compared.
+4. If the left element is greater than the right element, they are swapped.
+5. Multiple passes continue until the array is completely sorted.
+6. The sorted capacities are displayed.
+7. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- try Block
-- catch Block
-- finally Block
-- Runtime Exception
-- Custom Runtime Exception
-- throw Keyword
-- Graceful Exception Handling
-- Defensive Programming
+- Bubble Sort Algorithm
+- Arrays
+- Nested Loops
+- Swapping Logic
+- Array Traversal
+- Algorithmic Thinking
+- Time Complexity O(n²)
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create a custom runtime exception class `CargoSafetyException`.
-- Create a `GoodsBogie` class with:
-    - type
-    - cargo
-- Validate cargo compatibility before assignment.
-- Throw `CargoSafetyException` when:
-    - A **Rectangular** bogie is assigned **Petroleum**.
-- Handle the exception using a `try-catch` block.
-- Execute the `finally` block for completion logging.
-- Ensure the application continues execution after handling the exception.
+- Create an array of passenger bogie capacities.
+- Store sample capacities such as:
+    - 72
+    - 48
+    - 24
+    - 56
+    - 90
+- Use nested `for` loops to compare adjacent elements.
+- Swap elements whenever the left element is greater than the right element.
+- Continue the process until the array is sorted.
+- Display the capacities before and after sorting.
+- Do **not** use `Arrays.sort()` or `Collections.sort()`.
 
 ---
 
@@ -109,59 +110,38 @@ com.bridgelabz.trainconsist
 
 ## ▶️ Sample Output
 
-### Valid Cargo Assignment
-
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Assigning Cargo...
+Before Sorting:
+72 48 24 56 90
 
-GoodsBogie{type='Rectangular', cargo='Coal'}
-
-Cargo Assignment Process Completed.
-
-Program Continues Safely...
-```
-
-### Invalid Cargo Assignment
-
-```text
-======================================
-   Train Consist Management App
-======================================
-
-Assigning Cargo...
-
-Exception: Petroleum cannot be assigned to a Rectangular Bogie.
-
-Cargo Assignment Process Completed.
-
-Program Continues Safely...
+After Sorting:
+24 48 56 72 90
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC15, the following Java concepts are understood:
+After completing UC16, the following Java concepts are understood:
 
-- Creating custom runtime exceptions
-- Understanding the difference between checked and unchecked exceptions
-- Throwing runtime exceptions using the `throw` keyword
-- Handling runtime exceptions using `try-catch`
-- Executing mandatory code using the `finally` block
-- Implementing graceful failure handling
-- Applying business rules during runtime operations
-- Improving application reliability through defensive programming
+- Understanding the Bubble Sort algorithm
+- Working with arrays using indexes
+- Using nested loops for repeated comparisons
+- Swapping array elements using a temporary variable
+- Learning how manual sorting algorithms work internally
+- Understanding why Bubble Sort has **O(n²)** time complexity
+- Building a foundation for advanced sorting algorithms
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc15-safe-cargo-assignment
+feature/uc16-bubble-sort
 ```
 
 ---
@@ -169,7 +149,7 @@ feature/uc15-safe-cargo-assignment
 ## 💬 Commit Message
 
 ```text
-feat(UC15): implement safe cargo assignment using try-catch-finally
+feat(UC16): implement bubble sort for passenger bogie capacities
 ```
 
 ---
@@ -191,3 +171,5 @@ feat(UC15): implement safe cargo assignment using try-catch-finally
 - ✅ UC13 Completed
 - ✅ UC14 Completed
 - ✅ UC15 Completed
+- ✅ UC16 Completed
+```
