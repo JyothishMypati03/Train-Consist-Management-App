@@ -1,8 +1,8 @@
-# 📌 UC13: Performance Comparison (Loops vs Streams)
+# 📌 UC14: Handle Invalid Bogie Capacity (Custom Exception)
 
 ## 🎯 Goal
 
-Compare the performance of traditional loop-based processing and Stream API-based processing by measuring execution time using `System.nanoTime()`.
+Prevent invalid passenger bogies from being added to the train by enforcing capacity rules using a custom exception.
 
 ---
 
@@ -14,43 +14,36 @@ Compare the performance of traditional loop-based processing and Stream API-base
 
 ## 🔄 Flow
 
-1. User prepares a collection of bogies.
-2. The system records the start time using `System.nanoTime()`.
-3. Filtering is performed using a traditional loop.
-4. The execution time of the loop is calculated.
-5. The system records the start time again.
-6. Filtering is performed using the Stream API.
-7. The execution time of the stream is calculated.
-8. Both execution times are displayed.
-9. Program continues execution.
+1. User attempts to create a passenger bogie.
+2. The system validates the bogie capacity.
+3. If the capacity is less than or equal to zero, a custom exception is thrown.
+4. If the capacity is valid, the bogie is created successfully.
+5. The exception is handled appropriately.
+6. The program continues execution safely.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- System.nanoTime()
-- Performance Benchmarking
-- Loop-Based Processing
-- Stream API
-- stream() Method
-- filter() Operation
-- Micro-Performance Measurement
-- Evidence-Driven Optimization
+- Custom Exception
+- Exception Inheritance
+- throw Keyword
+- throws Declaration
+- try-catch Block
+- Fail-Fast Validation
+- Business Rule Enforcement
 
 ---
 
 ## 📋 Functional Requirements
 
-- Reuse the `Bogie` class created in previous use cases.
-- Create a `List<Bogie>` containing passenger and goods bogies.
-- Record the start time using `System.nanoTime()`.
-- Perform filtering using a traditional `for` loop.
-- Record the end time and calculate the loop execution time.
-- Record the start time again.
-- Perform filtering using the Stream API.
-- Record the end time and calculate the stream execution time.
-- Display the filtered bogies.
-- Display the execution time for both approaches.
+- Create a custom exception class `InvalidBogieException`.
+- Extend the `Exception` class.
+- Validate the passenger bogie capacity inside the constructor.
+- Throw `InvalidBogieException` when the capacity is less than or equal to zero.
+- Declare the constructor using `throws InvalidBogieException`.
+- Catch the exception using a `try-catch` block.
+- Ensure invalid passenger bogies are never added to the train consist.
 
 ---
 
@@ -73,9 +66,13 @@ TrainConsistManagement
 │   │               ├── app
 │   │               │   └── TrainApplication.java
 │   │               │
-│   │               └── model
-│   │                   ├── Bogie.java
-│   │                   └── GoodsBogie.java
+│   │               ├── model
+│   │               │   ├── Bogie.java
+│   │               │   ├── PassengerBogie.java
+│   │               │   └── GoodsBogie.java
+│   │               │
+│   │               └── exception
+│   │                   └── InvalidBogieException.java
 │   │
 │   └── resources
 │
@@ -92,59 +89,68 @@ com.bridgelabz.trainconsist
 ├── app
 │   └── TrainApplication.java
 │
-└── model
-    ├── Bogie.java
-    └── GoodsBogie.java
+├── model
+│   ├── Bogie.java
+│   ├── PassengerBogie.java
+│   └── GoodsBogie.java
+│
+└── exception
+    └── InvalidBogieException.java
 ```
 
 ---
 
 ## ▶️ Sample Output
 
+### Valid Capacity
+
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Loop-Based Filtering:
+PassengerBogie{name='Sleeper', capacity=72}
+PassengerBogie{name='AC Chair', capacity=48}
 
-Bogie Name : Sleeper, Type : Passenger, Capacity : 72 Seats
-Bogie Name : Cargo, Type : Goods, Capacity : 100 Seats
-Bogie Name : Oil Tanker, Type : Goods, Capacity : 80 Seats
-
-Stream-Based Filtering:
-
-Bogie Name : Sleeper, Type : Passenger, Capacity : 72 Seats
-Bogie Name : Cargo, Type : Goods, Capacity : 100 Seats
-Bogie Name : Oil Tanker, Type : Goods, Capacity : 80 Seats
-
-Performance Comparison
-
-Loop Execution Time   : 185700 ns
-Stream Execution Time : 263400 ns
+Program Continues Safely...
 ```
 
-> **Note:** The execution time will vary on every execution depending on the system configuration, JVM optimizations, and current CPU load.
+### Invalid Capacity
+
+```text
+======================================
+   Train Consist Management App
+======================================
+
+PassengerBogie{name='Sleeper', capacity=72}
+PassengerBogie{name='AC Chair', capacity=48}
+
+Exception: Invalid Bogie Capacity! Capacity must be greater than zero.
+
+Program Continues Safely...
+```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC13, the following Java concepts are understood:
+After completing UC14, the following Java concepts are understood:
 
-- Measuring execution time using `System.nanoTime()`
-- Benchmarking different implementations
-- Comparing loop-based and Stream API-based processing
-- Understanding that performance should be measured instead of assumed
-- Applying evidence-driven optimization techniques
-- Developing awareness of performance considerations in enterprise applications
+- Creating custom checked exceptions
+- Extending the `Exception` class
+- Throwing exceptions using the `throw` keyword
+- Declaring exceptions using the `throws` keyword
+- Handling exceptions using `try-catch`
+- Applying fail-fast validation during object creation
+- Enforcing business rules through custom exceptions
+- Preventing invalid data from entering the application
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-	feature/uc13-performance-test
+feature/uc14-handle-invalid-capacity
 ```
 
 ---
@@ -152,7 +158,7 @@ After completing UC13, the following Java concepts are understood:
 ## 💬 Commit Message
 
 ```text
-feat(UC13): compare loop and stream performance using System.nanoTime
+feat(UC14): handle invalid passenger bogie capacity using custom exception
 ```
 
 ---
@@ -172,3 +178,4 @@ feat(UC13): compare loop and stream performance using System.nanoTime
 - ✅ UC11 Completed
 - ✅ UC12 Completed
 - ✅ UC13 Completed
+- ✅ UC14 Completed
