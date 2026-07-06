@@ -1,8 +1,8 @@
-# 📌 UC19: Binary Search for Bogie ID (Optimized Searching)
+# 📌 UC20: Exception Handling During Search Operations
 
 ## 🎯 Goal
 
-Search and identify a specific bogie ID efficiently using the **Binary Search** algorithm on a sorted array of bogie IDs.
+Prevent search operations on an empty train by throwing an `IllegalStateException` before performing the search.
 
 ---
 
@@ -14,46 +14,36 @@ Search and identify a specific bogie ID efficiently using the **Binary Search** 
 
 ## 🔄 Flow
 
-1. User provides a list of bogie IDs.
-2. The system sorts the bogie IDs.
-3. User enters a bogie ID to search.
-4. The system initializes `low` and `high` indexes.
-5. The middle (`mid`) index is calculated.
-6. The search key is compared with the middle element using `compareTo()`.
-7. The search range is divided into half repeatedly.
-8. The search continues until the bogie ID is found or the search range is exhausted.
-9. The result is displayed.
-10. Program continues execution.
+1. User initiates a search operation.
+2. The system checks whether the train contains any bogies.
+3. If the bogie collection is empty, the system throws an `IllegalStateException`.
+4. The exception is caught and a meaningful error message is displayed.
+5. The search operation stops immediately.
+6. The application continues execution safely.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Binary Search Algorithm
-- Arrays.sort()
-- Arrays.toString()
-- String Comparison using `compareTo()`
-- Divide-and-Conquer Strategy
-- while Loop
-- Index-Based Traversal (`low`, `high`, `mid`)
-- Time Complexity O(log n)
+- Defensive Programming
+- IllegalStateException
+- Runtime Exceptions
+- throw Keyword
+- try-catch Block
+- State Validation
+- Fail-Fast Principle
 
 ---
 
 ## 📋 Functional Requirements
 
-- Create an array of bogie IDs.
-- Sort the array using `Arrays.sort()`.
-- Accept a bogie ID from the user.
-- Initialize:
-    - `low`
-    - `high`
-    - `mid`
-- Compare the search key with the middle element using `compareTo()`.
-- Adjust the search range based on the comparison result.
-- Stop searching when the bogie ID is found or when the search range becomes empty.
-- Display whether the bogie ID exists along with its index.
-- Display an appropriate message if the bogie ID is not found.
+- Create a collection to store bogie IDs.
+- Check whether the collection is empty before searching.
+- Throw an `IllegalStateException` if no bogies are available.
+- Display a meaningful error message.
+- Prevent further execution of the search logic.
+- Handle the exception using a `try-catch` block.
+- Continue program execution after handling the exception.
 
 ---
 
@@ -110,62 +100,61 @@ com.bridgelabz.trainconsist
     └── CargoSafetyException.java
 ```
 
+> **Note:** `IllegalStateException` is a built-in Java runtime exception (`java.lang`). No custom exception class is required for this use case.
+
 ---
 
 ## ▶️ Sample Output
 
-### Bogie Found
+### Empty Train Consist
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Sorted Bogie IDs:
-[BG101, BG205, BG309, BG450, BG512]
+Enter Bogie ID to Search: BG101
 
-Enter Bogie ID to Search: BG309
+Error: No bogies available in the train consist.
 
-Bogie Found at Index : 2
+Program Continues Safely...
 ```
 
-### Bogie Not Found
+### Train Contains Bogies
 
 ```text
 ======================================
    Train Consist Management App
 ======================================
 
-Sorted Bogie IDs:
-[BG101, BG205, BG309, BG450, BG512]
+Enter Bogie ID to Search: BG205
 
-Enter Bogie ID to Search: BG999
+Bogie Found: BG205
 
-Bogie ID Not Found.
+Program Continues Safely...
 ```
 
 ---
 
 ## 📈 Learning Outcome
 
-After completing UC19, the following Java concepts are understood:
+After completing UC20, the following Java concepts are understood:
 
-- Understanding the Binary Search algorithm
-- Working with sorted arrays
-- Using `Arrays.sort()` before performing binary search
-- Comparing strings using `compareTo()`
-- Using `low`, `high`, and `mid` indexes for efficient searching
-- Applying the divide-and-conquer strategy
-- Understanding why Binary Search requires sorted data
-- Learning the **O(log n)** time complexity of Binary Search
-- Comparing Binary Search with Linear Search for performance optimization
+- Applying defensive programming techniques
+- Validating object state before performing operations
+- Using the built-in `IllegalStateException`
+- Throwing runtime exceptions using the `throw` keyword
+- Handling exceptions using a `try-catch` block
+- Implementing the fail-fast principle
+- Preventing invalid search operations
+- Improving application reliability through state validation
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc19-binary-search
+feature/uc20-exception-handling-search
 ```
 
 ---
@@ -173,7 +162,7 @@ feature/uc19-binary-search
 ## 💬 Commit Message
 
 ```text
-feat(UC19): implement binary search for bogie IDs
+feat(UC20): prevent search on empty train using IllegalStateException
 ```
 
 ---
@@ -199,3 +188,5 @@ feat(UC19): implement binary search for bogie IDs
 - ✅ UC17 Completed
 - ✅ UC18 Completed
 - ✅ UC19 Completed
+- ✅ UC20 Completed
+- 🎉 **Train Consist Management App Project Completed**
