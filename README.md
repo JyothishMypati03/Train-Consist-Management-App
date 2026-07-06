@@ -1,8 +1,8 @@
-# 📌 UC18: Linear Search for Bogie ID (Array-Based Searching)
+# 📌 UC19: Binary Search for Bogie ID (Optimized Searching)
 
 ## 🎯 Goal
 
-Search and identify a specific bogie ID from an unsorted array using the **Linear Search** algorithm.
+Search and identify a specific bogie ID efficiently using the **Binary Search** algorithm on a sorted array of bogie IDs.
 
 ---
 
@@ -15,41 +15,43 @@ Search and identify a specific bogie ID from an unsorted array using the **Linea
 ## 🔄 Flow
 
 1. User provides a list of bogie IDs.
-2. User enters a bogie ID to search.
-3. The system traverses the array sequentially.
-4. Each bogie ID is compared with the search key using `equals()`.
-5. If a match is found, the search stops immediately.
-6. The search result is displayed.
-7. Program continues execution.
+2. The system sorts the bogie IDs.
+3. User enters a bogie ID to search.
+4. The system initializes `low` and `high` indexes.
+5. The middle (`mid`) index is calculated.
+6. The search key is compared with the middle element using `compareTo()`.
+7. The search range is divided into half repeatedly.
+8. The search continues until the bogie ID is found or the search range is exhausted.
+9. The result is displayed.
+10. Program continues execution.
 
 ---
 
 ## 💡 Java Concepts Covered
 
-- Arrays
-- Linear Search Algorithm
-- Sequential Traversal
-- String Comparison using `equals()`
-- Looping (`for` Loop)
-- `break` Statement
-- Boolean Flag
-- Time Complexity O(n)
+- Binary Search Algorithm
+- Arrays.sort()
+- Arrays.toString()
+- String Comparison using `compareTo()`
+- Divide-and-Conquer Strategy
+- while Loop
+- Index-Based Traversal (`low`, `high`, `mid`)
+- Time Complexity O(log n)
 
 ---
 
 ## 📋 Functional Requirements
 
 - Create an array of bogie IDs.
-- Store sample IDs such as:
-    - BG101
-    - BG205
-    - BG309
-    - BG450
-    - BG512
+- Sort the array using `Arrays.sort()`.
 - Accept a bogie ID from the user.
-- Traverse the array using a `for` loop.
-- Compare each bogie ID using the `equals()` method.
-- Stop searching immediately when a match is found.
+- Initialize:
+    - `low`
+    - `high`
+    - `mid`
+- Compare the search key with the middle element using `compareTo()`.
+- Adjust the search range based on the comparison result.
+- Stop searching when the bogie ID is found or when the search range becomes empty.
 - Display whether the bogie ID exists along with its index.
 - Display an appropriate message if the bogie ID is not found.
 
@@ -119,6 +121,9 @@ com.bridgelabz.trainconsist
    Train Consist Management App
 ======================================
 
+Sorted Bogie IDs:
+[BG101, BG205, BG309, BG450, BG512]
+
 Enter Bogie ID to Search: BG309
 
 Bogie Found at Index : 2
@@ -131,6 +136,9 @@ Bogie Found at Index : 2
    Train Consist Management App
 ======================================
 
+Sorted Bogie IDs:
+[BG101, BG205, BG309, BG450, BG512]
+
 Enter Bogie ID to Search: BG999
 
 Bogie ID Not Found.
@@ -140,23 +148,24 @@ Bogie ID Not Found.
 
 ## 📈 Learning Outcome
 
-After completing UC18, the following Java concepts are understood:
+After completing UC19, the following Java concepts are understood:
 
-- Understanding the Linear Search algorithm
-- Traversing arrays sequentially
-- Comparing strings safely using `equals()`
-- Using a boolean flag to track search results
-- Stopping execution early using the `break` statement
-- Understanding why Linear Search works on unsorted data
-- Learning the **O(n)** time complexity of Linear Search
-- Building a foundation for optimized searching techniques such as Binary Search
+- Understanding the Binary Search algorithm
+- Working with sorted arrays
+- Using `Arrays.sort()` before performing binary search
+- Comparing strings using `compareTo()`
+- Using `low`, `high`, and `mid` indexes for efficient searching
+- Applying the divide-and-conquer strategy
+- Understanding why Binary Search requires sorted data
+- Learning the **O(log n)** time complexity of Binary Search
+- Comparing Binary Search with Linear Search for performance optimization
 
 ---
 
 ## 🌿 Git Branch
 
 ```text
-feature/uc18-linear-search-bogie-id
+feature/uc19-binary-search
 ```
 
 ---
@@ -164,7 +173,7 @@ feature/uc18-linear-search-bogie-id
 ## 💬 Commit Message
 
 ```text
-feat(UC18): implement linear search for bogie IDs
+feat(UC19): implement binary search for bogie IDs
 ```
 
 ---
@@ -189,3 +198,4 @@ feat(UC18): implement linear search for bogie IDs
 - ✅ UC16 Completed
 - ✅ UC17 Completed
 - ✅ UC18 Completed
+- ✅ UC19 Completed
